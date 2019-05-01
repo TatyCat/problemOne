@@ -66,7 +66,7 @@ function mutateArray(arr) {
   let newArr = []
   let newObj = {}
 
-  for (let i = 0; i <= arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     // loop through the array to look at each object
     for (key in arr[i]) {
       // loop through each object to look at K:V pair
