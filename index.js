@@ -55,6 +55,13 @@ var arr = [
   },
 ];
 
+function sumOfArray(arrayNumbers) {
+  let arrayOfNum = arrayNumbers["some_array"]
+  return arrayOfNum.reduce(function (a, b) {
+    return a + b
+  }, 0)
+}
+
 function mutateArray(arr) {
   let newArr = []
   let newObj = {}
@@ -68,10 +75,10 @@ function mutateArray(arr) {
         newObj[key] = arr[i][key]
       }
       else if (key == 'guest_booking') {
-        //if the key =='guest_booking',
-
-        console.log(arr[i][key])
-        console.log(arr[i]["guest_booking"]["room_no"])
+        //if the key =='guest_booking', add the room #
+        newObj["room_no"] = arr[i]["guest_booking"]["room_no"]
+        // call function to add sum, passing in the array of numbers
+        newObj["some_total"] = sumOfArray(arr[i]["guest_booking"])
       }
     }
     //Loop done, add the object to an array & reset obj
