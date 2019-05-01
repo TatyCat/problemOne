@@ -70,11 +70,10 @@ function mutateArray(arr) {
     // loop through the array to look at each object
     for (key in arr[i]) {
       // loop through each object to look at K:V pair
-      if (key != 'guest_booking') {
+      if (key != 'guest_booking' && arr[i]["guest_type"] == 'guest') {
         // if the key != 'guest_booking', add K:V to obj.
         newObj[key] = arr[i][key]
-      }
-      else if (key == 'guest_booking') {
+      } else if (key == 'guest_booking' && arr[i]["guest_type"] == 'guest') {
         //if the key =='guest_booking', add the room #
         newObj["room_no"] = arr[i]["guest_booking"]["room_no"]
         // call function to add sum, passing in the array of numbers
@@ -82,8 +81,10 @@ function mutateArray(arr) {
       }
     }
     //Loop done, add the object to an array & reset obj
-    newArr.push(newObj)
-    newObj = {}
+    if (Object.entries(newObj).length != 0) {
+      newArr.push(newObj)
+      newObj = {}
+    }
   }
   //return the array of objects 
   return newArr;
