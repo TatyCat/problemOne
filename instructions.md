@@ -3,7 +3,7 @@
 
 [x] Do not assume the data will always be in the exact format provided.  Commit your code between each step.
 
-[] 1. Update the `mutateArray` function to return `a` as a flattened array, so that each item is changed to
+[x] 1. Update the `mutateArray` function to return `a` as a flattened array, so that each item is changed to
 ```
 {
   'guest_type': 'crew',
@@ -18,7 +18,7 @@
 },
 ```
 
-[] 2. Now update the `mutateArray` function so that the 'some_array' attribute in each item of the mutated array is changed to the sum of the array called 'some_total'
+[x] 2. Now update the `mutateArray` function so that the 'some_array' attribute in each item of the mutated array is changed to the sum of the array called 'some_total'
 ```
 {
   'guest_type': 'crew',
