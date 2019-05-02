@@ -31,7 +31,7 @@
 
 [x] 3. Now update the `mutateArray` function so that the resulting array only includes objects with a guest_type of 'guest'.
 
-[] 4. Finally, update the `mutateArray` function so the resulting array is ordered alphabetically by last and first name.
+[x] 4. Finally, update the `mutateArray` function so the resulting array is ordered alphabetically by last and first name.
 
 The final result should look like this:
 ```

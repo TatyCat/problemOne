@@ -65,28 +65,29 @@ function sumOfArray(arrayNumbers) {
 function mutateArray(arr) {
   let newArr = []
   let newObj = {}
-
   for (let i = 0; i < arr.length; i++) {
-    // loop through the array to look at each object
     for (key in arr[i]) {
-      // loop through each object to look at K:V pair
       if (key != 'guest_booking' && arr[i]["guest_type"] == 'guest') {
-        // if the key != 'guest_booking', add K:V to obj.
         newObj[key] = arr[i][key]
       } else if (key == 'guest_booking' && arr[i]["guest_type"] == 'guest') {
-        //if the key =='guest_booking', add the room #
         newObj["room_no"] = arr[i]["guest_booking"]["room_no"]
-        // call function to add sum, passing in the array of numbers
         newObj["some_total"] = sumOfArray(arr[i]["guest_booking"])
       }
+
+      newArr.sort(function (nameA, nameB) {
+        if (nameA.last_name.toLowerCase() > nameB.last_name.toLowerCase()) return 1;
+        if (nameA.last_name.toLowerCase() < nameB.last_name.toLowerCase()) return -1;
+
+        if (nameA.first_name.toLowerCase() > nameB.first_name.toLowerCase()) return 1;
+        if (nameA.first_name.toLowerCase() < nameB.first_name.toLowerCase()) return -1;
+      });
     }
-    //Loop done, add the object to an array & reset obj
+
     if (Object.entries(newObj).length != 0) {
       newArr.push(newObj)
       newObj = {}
     }
   }
-  //return the array of objects 
   return newArr;
 }
 
